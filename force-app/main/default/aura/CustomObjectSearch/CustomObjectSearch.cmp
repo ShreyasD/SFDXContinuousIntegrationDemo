@@ -1,5 +1,5 @@
 <aura:component controller="CustomObjectSearchLtngCtrl">
-    <aura:attribute name="objectName" type="String" access="public"
+    <aura:attribute name="objectName" type="String" access="public"/>
     <aura:attribute name="fields" type="List"/>
 
     <aura:attribute name="searchKeyword" type="String" access="public"/>

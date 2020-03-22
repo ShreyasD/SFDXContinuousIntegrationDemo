@@ -4,7 +4,7 @@ public with sharing class CustomObjectSearchLtngCtrl {
 
         String searchQuery = 'FIND \'' + searchKeyWord + ' IN ALL FIELDS ' +
                              'RETURNING ' + objectApiName + '(' + fields + ')';
-        List<List<SObject>> results = Search.find(searchQuery);
+        List<List<SObject>> results = Search.query(searchQuery);
         return results[0];
      }
 }
