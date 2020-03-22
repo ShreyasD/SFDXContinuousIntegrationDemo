@@ -1,5 +1,5 @@
 import { LightningElement, api, track, wire } from 'lwc';
-import getColumnDefinitions from '@salesforce/apex/CustomObjectSearchCmpLtngCtrl.getColumnDefinitions';
+import getColumnDefinitions from '@salesforce/apex/CustomObjectSearchLtngCtrl.getColumnDefinitions';
 import getSearchList from '@salesforce/apex/CustomObjectSearchLtngCtrl.getSearchList';
 
 export default class LwcCustomObjectSearchCmp extends LightningElement {
