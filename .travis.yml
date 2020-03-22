@@ -19,10 +19,12 @@ before_install:
 - sfdx plugins --core
 
 script:
-  - if [ "$TRAVIS_BRANCH" == "develop" ];
+  - sfdx force:auth:jwt:grant --clientid 3MVG9Kip4IKAZQEVlISG5fc69yVmE7_h534SdYjuYDYcl3bUn0LmriIGwsRHq1aGd_XLGpaE8CE6R_rG6vfEG --username sdhond@sfdxcontinuousintegrationdemo.com --jwtkeyfile certificates/server.key --setalias target_org --instanceurl https://login.salesforce.com;
+    if [ "$TRAVIS_BRANCH" == "develop" ] && [ "$TRAVIS_PULL_REQUEST" != "false" ];
       then
-        sfdx force:auth:jwt:grant --clientid 3MVG9ahGHqp.k2_xhpo_RFjqwjAvyc5VO.IRwENzjpstBD3Q5nxCoPLl_R6gmmFrFMWKts.0mm2LGUIk_tcsS --username travis.ci@thesource.ca.devmerge --jwtkeyfile build/certificates/server.key --setalias target_org --instanceurl https://test.salesforce.com;
         sfdx force:source:deploy -p ./force-app -u target_org --checkonly;
+      else
+        sfdx force:source:deploy -p ./force-app -u target_org;
         fi
 
 branches:
